@@ -1,0 +1,30 @@
+<style>
+  .employee-work-hours .flag {
+    background-color: red;
+  }
+</style>
+
+<table class="employee-work-hours">
+  <tr>
+    <th>Employee Name</th>
+    <th>Hours Worked</th>
+  </tr>
+
+  <ng-container *ngFor="let employeeDetail of employeeWorkHours">
+    <tr [class]="employeeDetail.totalWorkHours < 100 ? 'flag' : 'no-flag'">
+      <td>{{employeeDetail.name}}</td>
+      <td>{{employeeDetail.totalWorkHours.toFixed(2)}}</td>
+    </tr>
+  </ng-container>
+
+</table>
+
+<div style="width: 500px;">
+  <canvas baseChart
+    [type] = "'pie'"
+    [data] = "chartData">
+</canvas>
+</div>
+
+
+<router-outlet></router-outlet>
